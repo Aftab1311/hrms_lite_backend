@@ -52,10 +52,14 @@ app = FastAPI(
     lifespan=lifespan,
 )
 
-# Add CORS middleware
+origins = [
+    "https://aftab1311-hrms-lite-frontend.vercel.app",
+    "http://localhost:3000"
+]
+
 app.add_middleware(
     CORSMiddleware,
-    allow_origins=["*"],
+    allow_origins=origins,
     allow_credentials=True,
     allow_methods=["*"],
     allow_headers=["*"],
