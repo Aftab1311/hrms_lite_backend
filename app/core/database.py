@@ -18,6 +18,7 @@ class DatabaseConnector:
             settings.database_url,
             min_size=settings.db_min_pool_size,
             max_size=settings.db_max_pool_size,
+            statement_cache_size=0,  # Disable statement caching for asyncpg
         )
 
     async def connect(self):
